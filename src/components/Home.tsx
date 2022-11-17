@@ -14,10 +14,10 @@ const Home = () => {
 						Create incredible plant design for your offices or
 						apastaments. Add fresness to your new ideas.
 					</p>
-					<Link to="" className="button button--flex">
+					<a href="/" className="button button--flex">
 						Explore
 						<i className="ri-arrow-right-down-line button__icon"></i>
-					</Link>
+					</a>
 				</div>
 				<div className="home__social">
 					<span className="home__social-follow">Follow Us</span>

@@ -1,6 +1,11 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+	const scrollHeader = () => {
+		window.scrollY >= 80 ? "" : "";
+	};
+	window.addEventListener("scroll", scrollHeader);
+
 	return (
 		<header className="header">
 			<nav className="nav container">
@@ -10,29 +15,29 @@ const Header = () => {
 				<div className="nav__menu" id="nav__menu">
 					<ul className="nav__list">
 						<li className="nav__item">
-							<Link to="#home" className="nav__link">
+							<a href="#home" className="nav__link">
 								Home
-							</Link>
+							</a>
 						</li>
 						<li className="nav__item">
-							<Link to="#about" className="nav__link">
+							<a href="#about" className="nav__link">
 								About
-							</Link>
+							</a>
 						</li>
 						<li className="nav__item">
-							<Link to="#products" className="nav__link">
+							<a href="#products" className="nav__link">
 								Products
-							</Link>
+							</a>
 						</li>
 						<li className="nav__item">
-							<Link to="#faqs" className="nav__link">
+							<a href="#faqs" className="nav__link">
 								FAQs
-							</Link>
+							</a>
 						</li>
 						<li className="nav__item">
-							<Link to="/" className="nav__link">
+							<a href="/" className="nav__link">
 								Contact Us
-							</Link>
+							</a>
 						</li>
 					</ul>
 

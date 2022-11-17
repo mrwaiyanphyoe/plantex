@@ -1,9 +1,45 @@
-import React from "react";
-
+import { Link } from "react-router-dom";
+import AboutImg from "../assets/image/about.png";
 const About = () => {
 	return (
-		<section className="about" id="about">
-			<div className="about__container"></div>
+		<section className="about section container" id="about">
+			<div className="about__container grid">
+				<img src={AboutImg} alt="" className="about__img" />
+				<div className="about__data">
+					<h2 className="about__title section__title">
+						Who we really are & <br /> why choose us
+					</h2>
+
+					<p className="about__description">
+						We have over 4000+ unbiased reviews and our customers
+						trust our plant process and delivery service every time
+					</p>
+					<div className="about__details">
+						<p className="about__details-description">
+							<i className="ri-checkbox-fill about__details-icon"></i>
+							We always deliver on time.
+						</p>
+						<p className="about__details-description">
+							<i className="ri-checkbox-fill about__details-icon"></i>
+							We give you guides to protect and care for your
+							plants.
+						</p>
+						<p className="about__details-description">
+							<i className="ri-checkbox-fill about__details-icon"></i>
+							We always come over for a check-up after sale.
+						</p>
+						<p className="about__details-description">
+							<i className="ri-checkbox-fill about__details-icon"></i>
+							100% money back guaranteed.
+						</p>
+					</div>
+
+					<a href="#" className="button--link button--flex">
+						Shop Now
+						<i className="ri-arrow-right-down-line button__icon"></i>
+					</a>
+				</div>
+			</div>
 		</section>
 	);
 };
