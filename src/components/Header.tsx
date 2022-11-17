@@ -1,18 +1,31 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Header = () => {
+	const [showHeader, setShowHeader] = useState(false);
+	const [showMenu, setShowMenu] = useState(false);
+
 	const scrollHeader = () => {
-		window.scrollY >= 80 ? "" : "";
+		window.scrollY >= 80 ? setShowHeader(true) : setShowHeader(false);
 	};
 	window.addEventListener("scroll", scrollHeader);
 
+	const menuShow = () => {
+		setShowMenu(true);
+	};
+
+	const menuClose = () => {
+		setShowMenu(false);
+	};
 	return (
-		<header className="header">
+		<header className={showHeader ? "header scroll-header" : "header"}>
 			<nav className="nav container">
-				<Link to="/" className="nav__logo">
+				<a href="/" className="nav__logo">
 					<i className="ri-leaf-line nav__logo-icon"></i>PLANTEX
-				</Link>
-				<div className="nav__menu" id="nav__menu">
+				</a>
+				<div
+					className={showMenu ? "nav__menu show-menu" : "nav__menu"}
+					id="nav__menu"
+				>
 					<ul className="nav__list">
 						<li className="nav__item">
 							<a href="#home" className="nav__link">
@@ -35,13 +48,17 @@ const Header = () => {
 							</a>
 						</li>
 						<li className="nav__item">
-							<a href="/" className="nav__link">
+							<a href="/#contact" className="nav__link">
 								Contact Us
 							</a>
 						</li>
 					</ul>
 
-					<div className="nav__close" id="nav-close">
+					<div
+						className="nav__close"
+						onClick={menuClose}
+						id="nav-close"
+					>
 						<i className="ri-close-line"></i>
 					</div>
 				</div>
@@ -51,7 +68,11 @@ const Header = () => {
 						id="theme-button"
 					></i>
 
-					<div className="nav__toggle" id="nav-toggle">
+					<div
+						className="nav__toggle"
+						onClick={menuShow}
+						id="nav-toggle"
+					>
 						<i className="ri-menu-line"></i>
 					</div>
 				</div>

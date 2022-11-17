@@ -4,3 +4,5 @@ export { default as About } from "./About";
 export { default as Steps } from "./Steps";
 export { default as Product } from "./Product";
 export { default as Questions } from "./Questions";
+export { default as Contact } from "./Contact";
+export { default as Footer } from "./Footer";

@@ -1,6 +1,12 @@
-import React from "react";
+import { useState } from "react";
 
 const Questions = () => {
+	const [shwoContect, setShowContect] = useState(false);
+
+	const contectShow = () => {
+		shwoContect ? setShowContect(false) : setShowContect(true);
+	};
+
 	return (
 		<section className="questions section" id="faqs">
 			<h2 className="section__title-center questions__title container">
@@ -10,14 +16,23 @@ const Questions = () => {
 			<div className="questions__container container grid">
 				<div className="questions__group">
 					<div className="questions__item">
-						<header className="questions__header">
+						<header
+							className="questions__header"
+							onClick={contectShow}
+						>
 							<i className="ri-add-line questions__icon"></i>
 							<h3 className="questions__item-title">
 								My flowers are falling off or dying?
 							</h3>
 						</header>
 
-						<div className="questions__content">
+						<div
+							className={
+								shwoContect
+									? "questions__content accordion-open"
+									: "questions__content"
+							}
+						>
 							<p className="questions__description">
 								Plants are easy way to add color energy and
 								transform your space but which planet is for
