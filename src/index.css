@@ -614,18 +614,16 @@ the website, in dark theme
 }
 
 /*Rotate icon, change color of titles and background*/
-.accordion-open .questions__header,
-.accordion-open .questions__content {
+.accordion-open > .questions__header,
+.accordion-open > .questions__content {
 	background-color: var(--first-color);
 }
 
-.accordion-open .questions__item-title,
-.accordion-open .questions__description,
-.accordion-open .questions__icon {
+.accordion-open > .questions__description {
 	color: #fff;
 }
 
-.accordion-open .questions__icon {
+.accordion-open > .questions__icon {
 	transform: rotate(45deg);
 }
 

@@ -1,9 +1,4 @@
-import Product1 from "../assets/image/product1.png";
-import Product2 from "../assets/image/product2.png";
-import Product3 from "../assets/image/product3.png";
-import Product4 from "../assets/image/product4.png";
-import Product5 from "../assets/image/product5.png";
-import Product6 from "../assets/image/product6.png";
+import { products } from "../assets/data";
 
 const Product = () => {
 	return (
@@ -19,83 +14,24 @@ const Product = () => {
 			</p>
 
 			<div className="product__container grid">
-				<article className="product__card">
-					<div className="product__circle"></div>
+				{products.map((product, index) => (
+					<article className="product__card" key={index}>
+						<div className="product__circle"></div>
 
-					<img src={Product1} alt="" className="product__img" />
+						<img
+							src={product.image}
+							alt={`${product.title}'s image`}
+							className="product__img"
+						/>
 
-					<h3 className="product__title">Cacti Plant</h3>
-					<span className="product__price">$19.99</span>
+						<h3 className="product__title">{product.title}</h3>
+						<span className="product__price">{product.price}</span>
 
-					<button className="button--flex product__button">
-						<i className="ri-shopping-bag-line"></i>
-					</button>
-				</article>
-
-				<article className="product__card">
-					<div className="product__circle"></div>
-
-					<img src={Product2} alt="" className="product__img" />
-
-					<h3 className="product__title">Cactus Plant</h3>
-					<span className="product__price">$11.99</span>
-
-					<button className="button--flex product__button">
-						<i className="ri-shopping-bag-line"></i>
-					</button>
-				</article>
-
-				<article className="product__card">
-					<div className="product__circle"></div>
-
-					<img src={Product3} alt="" className="product__img" />
-
-					<h3 className="product__title">Aloe Vera Plant</h3>
-					<span className="product__price">$7.99</span>
-
-					<button className="button--flex product__button">
-						<i className="ri-shopping-bag-line"></i>
-					</button>
-				</article>
-
-				<article className="product__card">
-					<div className="product__circle"></div>
-
-					<img src={Product4} alt="" className="product__img" />
-
-					<h3 className="product__title">Succulent Plant</h3>
-					<span className="product__price">$5.99</span>
-
-					<button className="button--flex product__button">
-						<i className="ri-shopping-bag-line"></i>
-					</button>
-				</article>
-
-				<article className="product__card">
-					<div className="product__circle"></div>
-
-					<img src={Product5} alt="" className="product__img" />
-
-					<h3 className="product__title">Succulent Plant</h3>
-					<span className="product__price">$10.99</span>
-
-					<button className="button--flex product__button">
-						<i className="ri-shopping-bag-line"></i>
-					</button>
-				</article>
-
-				<article className="product__card">
-					<div className="product__circle"></div>
-
-					<img src={Product6} alt="" className="product__img" />
-
-					<h3 className="product__title">Green Plant</h3>
-					<span className="product__price">$8.99</span>
-
-					<button className="button--flex product__button">
-						<i className="ri-shopping-bag-line"></i>
-					</button>
-				</article>
+						<button className="button--flex product__button">
+							<i className="ri-shopping-bag-line"></i>
+						</button>
+					</article>
+				))}
 			</div>
 		</section>
 	);

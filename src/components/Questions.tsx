@@ -1,10 +1,42 @@
-import { useState } from "react";
+import React from "react";
+import { questions } from "../assets/data";
 
-const Questions = () => {
-	const [shwoContect, setShowContect] = useState(false);
+const Questions = (): JSX.Element => {
+	const [toggleContent, setToggleContent] = React.useState(false);
+	const [et, setEt] = React.useState("");
+	const accordionItems = document.querySelectorAll(".questions__item");
+	accordionItems.forEach((item) => {
+		const accordionHeader = item.querySelector(".questions__header");
 
-	const contectShow = () => {
-		shwoContect ? setShowContect(false) : setShowContect(true);
+		accordionHeader?.addEventListener("click", () => {
+			const openItem = document.querySelector(".accordion-open");
+
+			toggleItem(item);
+
+			if (openItem && openItem !== item) {
+				toggleItem(openItem);
+			}
+		});
+	});
+	const accordionContent = document.querySelector(".questions__content");
+	const csd = accordionContent?.classList.contains("accordion-open");
+	if (csd) {
+		accordionContent?.removeAttribute("style");
+	} else {
+		setEt(accordionContent?.scrollHeight + "px");
+	}
+
+	const toggleItem = (item: any) => {
+		const accordionContent = item.querySelector(".questions__content");
+
+		if (item.classList.contains("accordion-open")) {
+			accordionContent.removeAttribute("style");
+			item.classList.remove("accordion-open");
+		} else {
+			accordionContent.style.height =
+				accordionContent.scrollHeight + "px";
+			item.classList.add("accordion-open");
+		}
 	};
 
 	return (
@@ -16,117 +48,93 @@ const Questions = () => {
 			<div className="questions__container container grid">
 				<div className="questions__group">
 					<div className="questions__item">
-						<header
-							className="questions__header"
-							onClick={contectShow}
+						<div
+							className={
+								toggleContent
+									? "questions__header"
+									: "questions__header accordion-open"
+							}
+							onClick={() =>
+								setToggleContent((prev): boolean => !prev)
+							}
 						>
 							<i className="ri-add-line questions__icon"></i>
-							<h3 className="questions__item-title">
-								My flowers are falling off or dying?
-							</h3>
-						</header>
+							<h3 className="questions__item-title">jsjioj</h3>
+						</div>
 
 						<div
 							className={
-								shwoContect
-									? "questions__content accordion-open"
-									: "questions__content"
+								toggleContent
+									? "questions__content"
+									: "questions__content  accordion-open"
 							}
+							style={{ height: "100px" }}
 						>
-							<p className="questions__description">
-								Plants are easy way to add color energy and
-								transform your space but which planet is for
-								you. Choosing the right plant.
-							</p>
+							<p className="questions__description">siojoi</p>
 						</div>
 					</div>
+					{questions.questions1.map((question, index) => (
+						<div className="questions__item" key={index}>
+							<div
+								className={
+									toggleContent
+										? "questions__header"
+										: "questions__header accordion-open"
+								}
+								onClick={() =>
+									setToggleContent((prev): boolean => !prev)
+								}
+							>
+								<i className="ri-add-line questions__icon"></i>
+								<h3 className="questions__item-title">
+									{question.title}
+								</h3>
+							</div>
 
-					<div className="questions__item">
-						<header className="questions__header">
-							<i className="ri-add-line questions__icon"></i>
-							<h3 className="questions__item-title">
-								What causes leaves to become pale?
-							</h3>
-						</header>
-
-						<div className="questions__content">
-							<p className="questions__description">
-								Plants are easy way to add color energy and
-								transform your space but which planet is for
-								you. Choosing the right plant.
-							</p>
+							<div
+								className={
+									toggleContent
+										? "questions__content"
+										: "questions__content  accordion-open"
+								}
+								style={{ height: "100px" }}
+							>
+								<p className="questions__description">
+									{question.description}
+								</p>
+							</div>
 						</div>
-					</div>
-
-					<div className="questions__item">
-						<header className="questions__header">
-							<i className="ri-add-line questions__icon"></i>
-							<h3 className="questions__item-title">
-								What causes brown crispy leaves?
-							</h3>
-						</header>
-
-						<div className="questions__content">
-							<p className="questions__description">
-								Plants are easy way to add color energy and
-								transform your space but which planet is for
-								you. Choosing the right plant.
-							</p>
-						</div>
-					</div>
+					))}
 				</div>
 
 				<div className="questions__group">
-					<div className="questions__item">
-						<header className="questions__header">
-							<i className="ri-add-line questions__icon"></i>
-							<h3 className="questions__item-title">
-								How do i choose a plant?
-							</h3>
-						</header>
+					{questions.questions2.map((question, index) => (
+						<div className="questions__item" key={index}>
+							<div
+								className="questions__header"
+								onClick={() =>
+									setToggleContent((prev): any => !prev)
+								}
+							>
+								<i className="ri-add-line questions__icon"></i>
+								<h3 className="questions__item-title">
+									{question.title}
+								</h3>
+							</div>
 
-						<div className="questions__content">
-							<p className="questions__description">
-								Plants are easy way to add color energy and
-								transform your space but which planet is for
-								you. Choosing the right plant.
-							</p>
+							<div
+								className={
+									toggleContent
+										? "questions__content accordion-open"
+										: "questions__content"
+								}
+							>
+								<p className="questions__description">
+									{question.description}
+								</p>
+							</div>
 						</div>
-					</div>
-
-					<div className="questions__item">
-						<header className="questions__header">
-							<i className="ri-add-line questions__icon"></i>
-							<h3 className="questions__item-title">
-								How do I change the pots?
-							</h3>
-						</header>
-
-						<div className="questions__content">
-							<p className="questions__description">
-								Plants are easy way to add color energy and
-								transform your space but which planet is for
-								you. Choosing the right plant.
-							</p>
-						</div>
-					</div>
-
-					<div className="questions__item">
-						<header className="questions__header">
-							<i className="ri-add-line questions__icon"></i>
-							<h3 className="questions__item-title">
-								Why are gnats flying around my plant?
-							</h3>
-						</header>
-
-						<div className="questions__content">
-							<p className="questions__description">
-								Plants are easy way to add color energy and
-								transform your space but which planet is for
-								you. Choosing the right plant.
-							</p>
-						</div>
-					</div>
+					))}
 				</div>
 			</div>
 		</section>

@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import AboutImg from "../assets/image/about.png";
+import { AboutImg } from "../assets/images";
+
 const About = () => {
 	return (
 		<section className="about section container" id="about">

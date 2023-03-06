@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import HomeImg from "../assets/image/home.png";
+import { HomeImg } from "../assets/images";
 
 const Home = () => {
 	return (
@@ -22,28 +21,29 @@ const Home = () => {
 				<div className="home__social">
 					<span className="home__social-follow">Follow Us</span>
 					<div className="home__social-links">
-						<Link
-							to=""
+						<a
+							href="/"
 							className="home__social-link"
 							target="_blank"
 						>
 							<i className="ri-facebook-fill"></i>
-						</Link>
+						</a>
 
-						<Link
-							to=""
+						<a
+							href="/"
 							className="home__social-link"
 							target="_blank"
 						>
 							<i className="ri-instagram-line"></i>
-						</Link>
-						<Link
-							to=""
+						</a>
+
+						<a
+							href="/"
 							className="home__social-link"
 							target="_blank"
 						>
 							<i className="ri-twitter-fill"></i>
-						</Link>
+						</a>
 					</div>
 				</div>
 			</div>

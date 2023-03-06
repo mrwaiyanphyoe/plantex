@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { navLinks } from "../assets/data";
 
 const Header = () => {
 	const [showHeader, setShowHeader] = useState(false);
@@ -27,31 +28,16 @@ const Header = () => {
 					id="nav__menu"
 				>
 					<ul className="nav__list">
-						<li className="nav__item">
-							<a href="#home" className="nav__link">
-								Home
-							</a>
-						</li>
-						<li className="nav__item">
-							<a href="#about" className="nav__link">
-								About
-							</a>
-						</li>
-						<li className="nav__item">
-							<a href="#products" className="nav__link">
-								Products
-							</a>
-						</li>
-						<li className="nav__item">
-							<a href="#faqs" className="nav__link">
-								FAQs
-							</a>
-						</li>
-						<li className="nav__item">
-							<a href="/#contact" className="nav__link">
-								Contact Us
-							</a>
-						</li>
+						{navLinks.map((navLink, index) => (
+							<li className="nav__item" key={index}>
+								<a
+									href={`#${navLink?.id}`}
+									className="nav__link"
+								>
+									{navLink?.name}
+								</a>
+							</li>
+						))}
 					</ul>
 
 					<div

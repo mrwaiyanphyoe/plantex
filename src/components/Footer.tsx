@@ -1,8 +1,4 @@
-import React from "react";
-import Card1 from "../assets/image/card1.png";
-import Card2 from "../assets/image/card2.png";
-import Card3 from "../assets/image/card3.png";
-import Card4 from "../assets/image/card4.png";
+import { Card1, Card2, Card3, Card4 } from "../assets/images";
 
 const Footer = () => {
 	return (
